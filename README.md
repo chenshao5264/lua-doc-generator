@@ -49,7 +49,7 @@ node.js
 #### 使用方法
 ```
 set src=xxx.lua
-set dest=xxx.lua.md
+set dest=xxx
 node app src dest
 ```
 1. ___src___ 源lua文件
