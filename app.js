@@ -79,7 +79,7 @@ let start = function() {
         content += '修改日期: ' + moment().format('YYYY-MM-DD HH:mm:ss') + '\n\r';
         content += '### 0. 索引\n\r'
         for (let i = 0 ; i < apis.length; ++i) {
-            content += '[' + (i + 1) + '. ' + apis[i].name + ']' + '(#' + (i + 1) + ')\n'
+            content += '[' + (i + 1) + '. ' + apis[i].name + ']' + '(#' + (i + 1) + ')\n\r'
         } 
         content += '\n\r';
         content += '---\n\r'
