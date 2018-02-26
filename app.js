@@ -1,9 +1,12 @@
 const options = process.argv.splice(2);
-const filePath = options[0];
+let filePath = options[0];
 if (!filePath) {
     console.error('未设置文件路径');
     return;
 }
+
+
+
 let outFile = options[1];
 
 const path = require("path");
@@ -12,17 +15,29 @@ const readline = require('readline');
 const moment = require('moment');
 moment.locale('zh-cn');
 
+// 转为绝对路径
+filePath = path.resolve(filePath);
+console.log('filePath = ' + filePath);
 
 const fileName = path.basename(filePath);
+let dirName = path.dirname(filePath);
 
 // 设置输出路径
 if (!outFile) {
     outFile = path.dirname(filePath);
     outFile = path.resolve(outFile);
 }
-outFile += '/' + fileName + '.md'
 
-console.log(outFile)
+let outDir = filePath.substr(__dirname.length + 'src/'.length);
+outDir = __dirname + '/out' + path.dirname(outDir);
+
+
+// 判断目录是否存在
+if (fs.existsSync(outDir) === false) {
+    fs.mkdirSync(outDir);
+}
+
+outFile = outDir + '/' + fileName + '.md'
 
 let apis = [];
 
