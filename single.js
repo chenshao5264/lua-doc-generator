@@ -6,6 +6,8 @@ moment.locale('zh-cn');
 
 
 exports.run = function (f1, f2) {
+    console.log('doing ' + f1);
+
     let filePath = f1;
     let outFile = f2;
 
@@ -13,6 +15,8 @@ exports.run = function (f1, f2) {
         console.error('未设置文件路径');
         return;
     }
+
+    
 
     // 转为绝对路径
     filePath = path.resolve(filePath);

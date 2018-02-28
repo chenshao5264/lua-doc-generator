@@ -22,7 +22,7 @@ function readFile(path, filesList, walkDir) {
             let t = path + '/' + file;
             t = t.substr(5, t.length - 5);
             t = __dirname + '/out' + t;
-            console.log(t)
+
             // 判断目录是否存在
             if (fs.existsSync(t) === false) {
                 fs.mkdirSync(t);
@@ -68,8 +68,6 @@ for(let i = 0; i < filesList.length; ++i) {
     single.run(__dirname + '/src/' + filesList[i], path.dirname(__dirname + '/out/' + filesList[i]));
 }
 
-console.log(dirs)
-console.log('---------------------')
 
 let heap = [];
 function walk(obj) {
@@ -89,9 +87,6 @@ function walk(obj) {
 
 walk(dirs)
 
-console.log(heap)
-console.log('---------------------');
-
 let tmp = [];
 
 let tab = 0;
@@ -102,7 +97,6 @@ for (let i = 0; i < heap.length; ++i) {
 
 if (tmp.length % 2 === 0) {
     if (typeof t === 'object') {
-        console.log(tmp)
         tab = 0;
         let d = '';
         for (let j = 0; j < tmp.length; ++j) {
