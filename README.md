@@ -48,17 +48,15 @@ node.js
 
 #### 使用方法
 
-##### 单个生成
-```
-set src=xxx.lua
-set dest=xxx
-node app src dest
-```
-1. ___src___ 源lua文件
-2. ___dest___ 输出lua文件
-> 若dest为空，则默认输出到src所在目录
-
-##### 批量生成
 1. 将lua文件拷贝到src目录下
-2. 运行run.bat
+2. 
+```
+cd '当前跟目录'
+node ./app.js
+```
 3. 对应的md文件生成在out目录下
+4. 应用于gitbook的SUMMARY生成在out目录下
+5. cd ./out
+6. gitbook init
+7. gitbook serve
+8. 浏览器访问 http://localhost:4000
