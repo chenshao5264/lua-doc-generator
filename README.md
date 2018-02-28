@@ -51,7 +51,7 @@ node.js
 1. 将lua文件拷贝到src目录下
 2. 
 ```
-cd '当前跟目录'
+cd '当前目录'
 node ./app.js
 ```
 3. 对应的md文件生成在out目录下
