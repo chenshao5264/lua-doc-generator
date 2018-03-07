@@ -14,9 +14,10 @@ end
 
 -- /**
 --  * 保存帐号信息
+--  * @param {*} account 用户登录帐号
 --  * @return {number}
 --  */
-function M:save() 
+function M:save(account) 
 
 end
 

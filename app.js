@@ -95,48 +95,47 @@ for (let i = 0; i < heap.length; ++i) {
     let t = heap[i];
     tmp.push(t);
 
-if (tmp.length % 2 === 0) {
-    if (typeof t === 'object') {
-        tab = 0;
-        let d = '';
-        for (let j = 0; j < tmp.length; ++j) {
-            if (typeof tmp[j] === 'object') {
+    if (tmp.length % 2 === 0) {
+        if (typeof t === 'object') {
+            tab = 0;
+            let d = '';
+            for (let j = 0; j < tmp.length; ++j) {
+                if (typeof tmp[j] === 'object') {
 
-                for (let k = 0; k < tmp[j].length; ++k) {
-                    for (let s = 0; s < tab; ++s) {
-                        content += '    ';
+                    for (let k = 0; k < tmp[j].length; ++k) {
+                        for (let s = 0; s < tab; ++s) {
+                            content += '    ';
+                        }
+                        content += '* ';
+                        content += '[';
+                        content += tmp[j][k];
+                        content += ']';
+                        content += '(';
+
+                        content += d + tmp[j][k] + '.md';
+                        content += ')';
+                        content += '\n';
                     }
-                    content += '* ';
-                    content += '[';
-                    content += tmp[j][k];
-                    content += ']';
-                    content += '(';
+                    tab -= 1;
+                } else {
+                    
+                    if (tmp[j] != 0) {
 
-                    content += d + tmp[j][k] + '.md';
-                    content += ')';
-                    content += '\n';
-                }
-                tab -= 1;
-            } else {
-                
-                if (tmp[j] != 0) {
-
-                    for (let s = 0; s < tab; ++s) {
-                        content += '    ';
+                        for (let s = 0; s < tab; ++s) {
+                            content += '    ';
+                        }
+                        content += '* ';
+                        content += tmp[j];
+                        content += '\n';
+                        d += tmp[j] + '/';
+                        tab += 1;
                     }
-                    content += '* ';
-                    content += tmp[j];
-                    content += '\n';
-                    d += tmp[j] + '/';
-                    tab += 1;
+                    
                 }
-                
             }
+            tmp = [];
         }
-        tmp = [];
     }
-}
-    
 }
 
 fs.writeFileSync(__dirname + '/out/SUMMARY.md', content, { encoding: 'utf8', flag: 'w' });

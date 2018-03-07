@@ -136,6 +136,9 @@ exports.run = function (f1, f2) {
         let canNull = false;
         if (type.indexOf('null') === -1) {
             type = type.substr(1, type.length - 2);
+            if (type === '*') {
+                type = 'any';
+            }
         } else {
             canNull = true;
 
